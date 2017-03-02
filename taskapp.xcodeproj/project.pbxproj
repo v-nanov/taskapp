@@ -12,6 +12,10 @@
 		130101A11E64153000309361 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1301019F1E64153000309361 /* Main.storyboard */; };
 		130101A31E64153000309361 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 130101A21E64153000309361 /* Assets.xcassets */; };
 		130101A61E64153000309361 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 130101A41E64153000309361 /* LaunchScreen.storyboard */; };
+		130101AE1E642E7900309361 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130101AD1E642E7900309361 /* InputViewController.swift */; };
+		136F241F1E643DD200F81CED /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 136F241D1E643DD200F81CED /* Realm.framework */; };
+		136F24201E643DD200F81CED /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 136F241E1E643DD200F81CED /* RealmSwift.framework */; };
+		136F24231E643F3600F81CED /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136F24221E643F3600F81CED /* Task.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		130101A21E64153000309361 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		130101A51E64153000309361 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		130101A71E64153000309361 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		130101AD1E642E7900309361 /* InputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
+		136F241D1E643DD200F81CED /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		136F241E1E643DD200F81CED /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		136F24221E643F3600F81CED /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +37,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				136F241F1E643DD200F81CED /* Realm.framework in Frameworks */,
+				136F24201E643DD200F81CED /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +50,7 @@
 			children = (
 				1301019A1E64153000309361 /* taskapp */,
 				130101991E64153000309361 /* Products */,
+				136F241C1E643DD000F81CED /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +65,25 @@
 		1301019A1E64153000309361 /* taskapp */ = {
 			isa = PBXGroup;
 			children = (
+				1301019F1E64153000309361 /* Main.storyboard */,
 				1301019B1E64153000309361 /* AppDelegate.swift */,
 				1301019D1E64153000309361 /* ViewController.swift */,
-				1301019F1E64153000309361 /* Main.storyboard */,
+				136F24221E643F3600F81CED /* Task.swift */,
+				130101AD1E642E7900309361 /* InputViewController.swift */,
 				130101A21E64153000309361 /* Assets.xcassets */,
 				130101A41E64153000309361 /* LaunchScreen.storyboard */,
 				130101A71E64153000309361 /* Info.plist */,
 			);
 			path = taskapp;
+			sourceTree = "<group>";
+		};
+		136F241C1E643DD000F81CED /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				136F241D1E643DD200F81CED /* Realm.framework */,
+				136F241E1E643DD200F81CED /* RealmSwift.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,6 +96,7 @@
 				130101941E64152F00309361 /* Sources */,
 				130101951E64152F00309361 /* Frameworks */,
 				130101961E64152F00309361 /* Resources */,
+				136F24211E643DDB00F81CED /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -131,11 +154,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		136F24211E643DDB00F81CED /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		130101941E64152F00309361 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				136F24231E643F3600F81CED /* Task.swift in Sources */,
+				130101AE1E642E7900309361 /* InputViewController.swift in Sources */,
 				1301019E1E64153000309361 /* ViewController.swift in Sources */,
 				1301019C1E64153000309361 /* AppDelegate.swift in Sources */,
 			);
@@ -258,6 +301,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = taskapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.techacademy.yu.nakamura.taskapp;
@@ -270,6 +317,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = taskapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.techacademy.yu.nakamura.taskapp;
@@ -297,6 +348,7 @@
 				130101AC1E64153000309361 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
